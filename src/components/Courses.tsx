@@ -4,13 +4,13 @@ import { Children } from "react"
 export default function Courses(){
   const certificates = [
     "google_it_support.webp",
-    "Certificado-Desarrollo-Web-con-HTML-EducaciónIT.webp",
-    "Certificado-Git_-Desarrollo-Colaborativo-EducaciónIT.webp",
-    "Certificado-Introducción-al-Paradigma-de-Objetos-EducaciónIT.webp",
-    "Certificado-Javascript-Desarrollador-Avanzado-EducaciónIT.webp",
-    "Certificado-Javascript-desde-cero-EducaciónIT.webp",
-    "Certificado-Maquetador-Web-Avanzado-EducaciónIT.webp",
-    "Certificado-MongoDB-Fundamentos-EducaciónIT.webp",
+    "Certificado-Desarrollo-Web-con-HTML-EducacionIT.webp",
+    "Certificado-Git_-Desarrollo-Colaborativo-EducacionIT.webp",
+    "Certificado-Introduccion-al-Paradigma-de-Objetos-EducacionIT.webp",
+    "Certificado-Javascript-Desarrollador-Avanzado-EducacionIT.webp",
+    "Certificado-Javascript-desde-cero-EducacionIT.webp",
+    "Certificado-Maquetador-Web-Avanzado-EducacionIT.webp",
+    "Certificado-MongoDB-Fundamentos-EducacionIT.webp",
   ]
 
   return(
