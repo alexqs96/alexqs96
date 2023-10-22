@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Throw A Note",
+    "desktop": "throwanote_notebook.webp",
+    "mobile": "throwanote_mobile.webp",
+    "madewith": "React",
+    "about": "Want to share your note anonimously? Throw a Note is your site of random notes.",
+    "github": "https://github.com/alexqs96/throwanote",
+    "url": "https://throwanote.vercel.app",
+    "tech": [
+      "Typescript",
+      "NextJS",
+      "Express.js",
+      "Tailwind",
+      "MongoDB"
+    ],
+    "wip": false
+  },
+  {
+    "name": "X Clone",
+    "desktop": "twitter_notebook.webp",
+    "mobile": "twitter_mobile.webp",
+    "madewith": "React",
+    "about": "X Clone, No Country Project.",
+    "github": "https://github.com/No-Country/s8-07-t-node-react-twitter",
+    "url": "https://twitter-nc.vercel.app",
+    "tech": [
+      "NextJS",
+      "Express.js",
+      "Socket.io",
+      "Node.js",
+      "Tailwind",
+      "MongoDB"
+    ],
+    "wip": false
+  },
+  {
+    "name": "Anonytalk",
+    "desktop": "anonytalk_notebook.webp",
+    "mobile": "anonytalk_mobile.webp",
+    "madewith": "React",
+    "about": "Chat anonimously in groups at Anonytalk, create your chat and share it with friends.",
+    "github": "https://github.com/alexqs96/anonytalk_client",
+    "url": "https://anonytalk.vercel.app",
+    "tech": [
+      "Typescript",
+      "NextJS",
+      "Express.js",
+      "Node.js",
+      "Socket.io",
+      "Tailwind"
+    ],
+    "wip": false
+  },
+  {
+    "name": "404 Computers",
+    "desktop": "wip_notebook.webp",
+    "mobile": "wip_mobile.webp",
+    "madewith": "React",
+    "about": "E-Commerce of hardware and home appliances.",
+    "github": "",
+    "url": "",
+    "tech": [
+      "Typescript",
+      "NextJS",
+      "Express.js",
+      "Tailwind",
+      "MongoDB"
+    ],
+    "wip": true
+  }
+]

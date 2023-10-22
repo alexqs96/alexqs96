@@ -1,0 +1,243 @@
+---
+title: EmailJS
+description: 'Receive emails from your site with EmailJS'
+date: 2023-09-4
+cover: '/img/emailjs/email-js.webp'
+---
+
+## Setting up our account
+
+EmailJS facilites the way to send emails from our page in just a few steps before to get started we must setup our email account and email template to make our form work from our page.
+First we need to sign up in the page below.
+
+<a href="https://dashboard.emailjs.com/sign-up" target="_blank" rel="noreferrer noopener" aria-label="https://dashboard.emailjs.com/sign-up">{"https://dashboard.emailjs.com/sign-up"}</a>
+
+Then we can connect our account clicking on the "Add New Service" button.
+
+<img src="/img/emailjs/addserviceemailjs.webp" alt="sign up process emailjs" />
+
+After that we must signin in our desired email where we are going to receive the emails from our page, after doing that step you should see something like the image below.
+
+<img src="/img/emailjs/serviceidemailjs.webp" alt="emailjs service id example" />
+
+Save the "service_1234567" line we will need that later to make our form work.
+
+After getting the service id we must create a template for our mail, we can do it by clicking on the left sidebar in the "Email Templates" option.
+
+Then we need to click on "Create New Template".
+
+<img src="/img/emailjs/createtemplateemailjs.webp" alt="emailjs template id example" />
+
+Then we need to create our template, we can move every field we receive from the form by using `${{fieldnamevalue}}`, heres a example of how our email template could be, feel free to customize your template this example just show how you have to place the values that will come from our form page ( name, email, message ).
+
+<p className="bg-red-200 text-red-600 w-fit px-2 rounded" aria-label="IMPORTANT: dont forget to click save after make any change.">IMPORTANT: dont forget to click save after make any change.</p>
+
+<img src="/img/emailjs/templateformemailjs.webp" alt="emailjs template example" />
+
+once we finish our template, we must go to the settings tab and save our "Template ID", that will be needed later, you can assign a name to the template if you want.
+
+<img src="/img/emailjs/templateidexampleemailjs.webp" alt="emailjs template id settings example" />
+
+Finally we will need our "Public Key", we can find our key by clicking in our name at the right top of the header.
+
+<img src="/img/emailjs/publickeyemailjsnav.webp" alt="emailjs public key navbar example" />
+<img src="/img/emailjs/publickeyemailjssettings.webp" alt="emailjs public key settings example" />
+
+<hr/>
+
+## Setting up our form in HTML
+
+First we need to add the cdn or js file of emailjs.
+
+```html
+  <body>
+  ...
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  </body>
+```
+
+Then we need to create a javascript file to manage our form.
+
+For this example this will be done bellow our cdn script line we added previously.
+
+We will use this basic form, styles aint needed, just focus on the form html and script function.
+
+```html
+  <head>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    form{
+      display: flex;
+      flex-direction: column;
+      gap: .25em;
+      width: 100%;
+      max-width: 400px;
+    }
+
+  </style>
+  </head>
+  <body>
+  ...
+  <main>
+    <form onsubmit="handleSubmit(); event.preventDefault();">
+      <label for="name">Name</label>
+      <input name="name" type="text" id="name">
+  
+      <label for="email">Email</label>
+      <input name="email" type="email" id="email">
+  
+      <label for="message">Leave a Message</label>
+      <textarea name="message" type="text" id="message"></textarea>
+  
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    function handleSubmit(){
+      console.log("sending email...")
+    }
+  </script>
+  </body>
+```
+<hr/>
+
+## Creating Script ( Short Example )
+this is the basic example of how to get emailjs working you can start from here to apply any custom message to the client like a toaster or show some hidden div..
+
+```html
+  ...
+  <script type="text/javascript">
+    async function handleSubmit(){
+      console.log("sending email...")
+      // First we will take control of the submit button to prevent double clicks
+      const sendButton = document.querySelector("button[type='submit']")
+      sendButton.disabled = true
+
+      // initialize emailjs, here goes our public Key
+      emailjs.init("PUBLIC_KEY_GOES_HERE");
+
+      try{
+        // We pass our keys to the function, the last field is the selector of our form
+        // If you have many forms use the id selector or className for example #contactform
+        // in this example we only have one form so we can select it using "form"
+        // response from emailjs is saved in res variable
+
+        const res = await emailjs.sendForm("SERVICE_ID_GOES_HERE", "TEMPLATE_ID_GOES_HERE", "form")
+
+        // if the email is sent without errors, the status will be 200
+        if(res === 200){
+          console.log("Message Sent :)")
+          sendButton.disabled = false;
+        }
+        else
+        {
+          console.log("Message wasnt sent")
+          sendButton.disabled = false;
+        }
+      }catch{
+        console.log("Server Error: Message wasnt sent")
+        sendButton.disabled = false;
+      }
+    }
+  </script>
+```
+
+## Example modifying the HTML DOM
+changes the submit text content to show the current state and restores it to its original value
+
+```html
+  ...
+  <script type="text/javascript">
+    async function handleSubmit(){
+      console.log("sending email...")
+      // This is not needed but will help us to modify any state from here
+
+      const sendMessage = "Send Message"
+      const sendingMessage = "Sending Message..."
+      const sendingFailed = "Oops something failed please try again later"
+      const messageSent = "Message Sent :)"
+
+      // First we will take control of the submit button to prevent double clicks
+      // for this example we will be modifiying our button content to show our current state
+      // check the next block to see the minimum code needed to make emailjs work on your page
+      const sendButton = document.querySelector("button[type='submit']")
+
+      // Disabled to prevent duplicated emails, we will re enable this later
+      sendButton.disabled = true
+
+      // Change status to sending
+      sendButton.textContent = sendingMessage
+
+      // initialize emailjs, here goes our public Key
+      emailjs.init("PUBLIC_KEY_GOES_HERE");
+
+      // this function isnt needed if you apply the state in a different way,
+      // here is used to restore the send button text
+      function restoreMessageButton(customMessage) {
+        sendButton.textContent = customMessage;
+        sendButton.disabled = true;
+
+        const cleanId = setTimeout(() => {
+          sendButton.textContent = sendMessage;
+          sendButton.disabled = false;
+
+          clearTimeout(cleanId);
+        }, 2000);
+      }
+
+      try{
+        // We pass our keys to the function, the last field is the selector of our form
+        // If you have many forms use the id selector or className for example #contactform
+        // in this example we only have one form so we can select it using "form"
+        // response from emailjs is saved in res variable
+
+        const res = await emailjs.sendForm("SERVICE_ID_GOES_HERE", "TEMPLATE_ID_GOES_HERE", "form")
+
+        // if the email is sent without errors, the status will be 200
+        if(res.status === 200){
+          // we change our state to sent
+          // you can add more code here if the response is ok 
+
+          // for this example will be using settimeout, to clean our button, you can avoid that by using a
+          // toaster animation or applying the message to some part of the html
+
+          restoreMessageButton(messageSent)
+        }
+        else
+        {
+          restoreMessageButton(sendingFailed)
+        }
+      }catch{
+        restoreMessageButton("Server Error: Please try again later")
+      }
+    }
+  </script>
+```
+
+## Limits
+
+### EmailJS simplifies our way to send emails from our page to our email but there are some limits
+
+- only 200 emails per month, every month at the same day that we used the service the service will be renewed.
+- 2 email templates maximum, we can create other email template but we are limited to only 2
+
+<section className="bg-green-300 dark:bg-green-500 px-2 w-fit">
+## Pros
+</section>
+- We can validate the response from EmailJS and show the client the right UI for each response
+- We are not attached to other pages this will be sent from our page
+
+<section className="bg-red-300 dark:bg-red-500 px-2 w-fit">
+## Cons
+</section>
+- Setup might be a little complex if you dont know fetching in javascript or manage the HTML DOM
+- Only 200 emails available per month, if your email flow is closest or higher, this might not be the best option for your site ( check prices ).
+
+<hr/>
+
+Thanks for read this article if you have any suggestion let me know through the contact page or my social pages.

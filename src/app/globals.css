@@ -2,26 +2,341 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html{
+  scrollbar-gutter: stable;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+body{
+  transition: background-color .25s;
+}
+
+.noAa{
+  -webkit-font-smoothing: auto;
+}
+
+.reveal{
+  animation: reveal .5s cubic-bezier(0.52, 0.01, 0.16, 1);
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.dark {
+  color-scheme: light dark;
+  color: #fff;
+}
+
+::selection{
+  background-color: #5500ff;
+  color: #fff;
+}
+
+.dark ::selection{
+  background-color: #fff;
+  color: #000;
+}
+
+.text-shadow {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.wow:hover{
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🤯</text></svg>")
+      16 0, auto;
+}
+
+.tri-about {
+  display: grid;
+  height: fit-content;
+  grid-template-areas:
+    "title"
+    "pic"
+    "info"
+    "tech";
+}
+
+.tri-about-title{
+  grid-area: title;
+}
+
+.tri-about-pic {
+  grid-area: pic;
+}
+
+.tri-about-info {
+  grid-area: info;
+}
+
+.tri-about-tech {
+  grid-area: tech;
+}
+
+@layer utilities {
+  
+  .tri-about-rows{
+    grid-template-rows: 20% 50% 30%;
+  }
+
+  .balance {
+    text-wrap: balance;
+  }
+
+  .gradient::before,
+  .gradient::after {
+    content: "";
+    display: block;
+    position: absolute;
+    min-width: 256px;
+    min-height: 256px;
+    max-height: 500px;
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    inset-block: 0;
+    transition: filter 0.7s cubic-bezier(0.57, 2.2, 0.26, 0.99);
+    filter: blur(55px);
+    z-index: -1;
+    top: -.5em;
+    margin-bottom: auto;
+    right: 0;
+    background-repeat: no-repeat;
+  }
+
+  .gradient::before {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(106, 0, 255, 0.6),
+      transparent 65%
+    );
+  }
+
+  .gradient::after {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 0, 195, 0.4),
+      transparent 60%
+    );
+    top: 1em;
+    right: 12dvw;
+  }
+
+  .dark .gradient::before {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(98, 0, 255, 0.8),
+      transparent 65%
+    );
+  }
+
+  .dark .gradient::after {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(183, 0, 255, 0.4),
+      transparent 60%
+    );
+  }
+
+  /* Animations and effects */
+
+  .pressable {
+    transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .pressable:active {
+    animation: pressable 2s cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  @keyframes pressable {
+    0% {
+      transform: scale(0.98);
+    }
+
+    40% {
+      transform: scale(1.01);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .wavehand {
+    display: inline-block;
+    transition: transform 1.7s;
+    animation: wavehand 2.7s linear infinite;
+    transform-origin: bottom right;
+  }
+
+  @keyframes wavehand {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(3deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .shake {
+    animation: shake .2s cubic-bezier(0.52, 0.01, 0.16, 1);
+  }
+  
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+  
+    25% {
+      transform: translateX(.5rem);
+    }
+  
+    75% {
+      transform: translateX(-.5rem);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .lightning {
+    transition: filter 0.5s;
+    animation: lightning 3s ease infinite;
+  }
+
+  @keyframes lightning {
+    0% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.3);
+    }
+    100% {
+      filter: brightness(1);
+    }
+  }
+
+  html .wave {
+    background-image: linear-gradient(30deg, #370cd1 45%, #5500ff 100%);
+    background-size: 150% 150%;
+    animation: wave 7s ease infinite;
+    color: #fff;
+  }
+
+  .dark .wave {
+    background-image: linear-gradient(30deg, #ffffff 45%, #e7e7e7 100%);
+    color: black;
+  }
+
+  @keyframes wave {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .gradient::before {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(106, 0, 255, 0.3),
+      transparent 65%
+    );
+  }
+
+  .gradient::after {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 0, 195, 0.1),
+      transparent 60%
+    );
+  }
+}
+
+@media (min-width: 640px) {
+
+  figure{
+    max-width: 3.3em;
+  }
+
+  figure figcaption {
+    font-size: .6em;
+  }
+
+  .tri-about {
+    grid-template-areas:
+      "title title"
+      "pic info"
+      "tech tech";
+  }
+
+  .gradient::before,
+  .gradient::after {
+    max-height: 600px;
+    max-width: 600px;
+    top: .5em;
+  }
+
+  .gradient::before {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(134, 47, 255, 0.6),
+      transparent 65%
+    );
+  }
+
+  .gradient::after {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 31, 203, 0.4),
+      transparent 60%
+    );
+    margin-top: 1em;
+    top: .5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tri-about {
+    grid-template-areas:
+      "title title"
+      "pic info"
+      "pic tech";
+  }
+
+  .tri-about-pic {
+    grid-row: 2/4;
+  }
+}
+
+@media (min-width: 1536px){
+  .gradient::before {
+    right: -1em;
+  }
+
+  .gradient::after {
+    right: 5dvw;
+  }
 }

@@ -1,0 +1,81 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 161.9 151.31"
+    class="md:w-10 md:h-10"
+>
+    <defs>
+        <linearGradient
+            id="linear-gradient"
+            x1="-56.75"
+            y1="155.97"
+            x2="-75.89"
+            y2="106.36"
+            gradientTransform="translate(250.27 468.52) scale(3 -3)"
+            gradientUnits="userSpaceOnUse"
+        >
+            <stop offset=".22" stop-color="#231f20" stop-opacity="0" />
+            <stop offset=".47" stop-color="#1e1a1b" stop-opacity=".13" />
+            <stop offset=".78" stop-color="#0f0d0d" stop-opacity=".29" />
+            <stop offset="1" stop-color="#000" stop-opacity=".4" />
+        </linearGradient>
+        <linearGradient
+            id="linear-gradient-2"
+            x1="-56.75"
+            y1="155.97"
+            x2="-75.89"
+            y2="106.36"
+            gradientTransform="translate(250.27 468.52) scale(3 -3)"
+            gradientUnits="userSpaceOnUse"
+        >
+            <stop offset="0" stop-color="#fff" stop-opacity=".2" />
+            <stop offset=".78" stop-color="#fff" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient
+            id="linear-gradient-3"
+            x1="-37.52"
+            y1="108.45"
+            x2="-55.98"
+            y2="154.21"
+            gradientTransform="translate(250.27 468.52) scale(3 -3)"
+            gradientUnits="userSpaceOnUse"
+        >
+            <stop offset="0" stop-color="#231f20" stop-opacity="0" />
+            <stop offset=".33" stop-color="#1e1a1b" stop-opacity=".13" />
+            <stop offset=".72" stop-color="#0f0d0d" stop-opacity=".29" />
+            <stop offset="1" stop-color="#000" stop-opacity=".4" />
+        </linearGradient>
+    </defs>
+    <g>
+        <polygon
+            class="alex-svg-main-color"
+            points="161.9 151.31 104.84 0 102.17 0 59.05 0 56.38 0 0 151.31 45.79 151.31 80.74 57.52 116.11 151.31 161.9 151.31"
+        />
+        <polygon
+            points="102.17 0 56.38 0 0 151.31 45.79 151.31 102.17 0"
+            fill="url(#linear-gradient)"
+        />
+        <polygon
+            class="alex-svg-mix-blend"
+            points="102.17 0 56.38 0 0 151.31 45.79 151.31 102.17 0"
+            fill="url(#linear-gradient-2)"
+        />
+        <polygon
+            points="161.9 151.31 104.84 0 102.17 0 80.74 57.52 116.11 151.31 161.9 151.31"
+            fill="url(#linear-gradient-3)"
+        />
+    </g>
+    <style>
+        .alex-svg-mix-blend{
+            mix-blend-mode: plus-lighter;
+        }
+        .alex-svg-main-color{
+            fill: #4c1aff
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .alex-svg-main-color { fill: #FFF; }
+        }
+    </style>
+</svg>
