@@ -23,6 +23,7 @@
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.0",
     "resend": "^1.1.0",
+    "shiki": "^0.14.5",
     "zod": "^3.22.4"
   },
   "devDependencies": {
