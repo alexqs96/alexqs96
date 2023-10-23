@@ -14,9 +14,7 @@ import {
   ReduxLogo,
   SocketIOLogo,
   TailwindLogo,
-  TypescriptLogo,
-  GithubLogo,
-  WebLogo,
+  TypescriptLogo
 } from "./Icons";
 import projects_data from "./projects.json";
 import Image from "next/image";
@@ -46,7 +44,9 @@ const Projects = () => {
         Projects
       </h2>
       <p className="text-2xl font-medium mb-6">
-        {"Along my journey as a Web Developer 🧑🏽‍💻, i've participated in Projects at "}
+        {
+          "Along my journey as a Web Developer 🧑🏽‍💻, i've participated in Projects at "
+        }
         <a
           href="https://www.nocountry.tech"
           target="_blank"

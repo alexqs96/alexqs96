@@ -1,9 +1,10 @@
-import Image from "next/image"
-import { Children } from "react"
+import Image from "next/image";
+import { Children } from "react";
 
-export default function Courses(){
+export default function Courses() {
   const certificates = [
     "google_it_support.webp",
+    "digital_house_fullstack.webp",
     "Certificado-Desarrollo-Web-con-HTML-EducacionIT.webp",
     "Certificado-Git_-Desarrollo-Colaborativo-EducacionIT.webp",
     "Certificado-Introduccion-al-Paradigma-de-Objetos-EducacionIT.webp",
@@ -11,41 +12,39 @@ export default function Courses(){
     "Certificado-Javascript-desde-cero-EducacionIT.webp",
     "Certificado-Maquetador-Web-Avanzado-EducacionIT.webp",
     "Certificado-MongoDB-Fundamentos-EducacionIT.webp",
-  ]
+  ];
 
-  return(
+  return (
     <section>
       <h2 className="text-3xl md:text-5xl font-bold mb-4 pb-2 border-b-8 border-[#5b33ed] dark:border-[#6f48ff] w-fit">
         Courses
       </h2>
 
       <p className="text-2xl font-medium mb-6">
-        My certificates from Educación IT and Coursera.
+        My certificates from Coursera, Digital House and Educación IT.
       </p>
 
       <div className="flex items-center gap-2 flex-wrap mt-10">
-        {
-          Children.toArray(
-            certificates.map(e => (
-              <a
-                className="block h-full w-full max-w-[96px] md:max-w-[156px] object-cover rounded-lg border transition-transform duration-200 hover:-translate-y-1 overflow-hidden"
-                href={"/img/courses/"+e}
-                target="_blank"
-              >
-                <Image
-                  className="w-full h-full"
-                  src={"/img/courses/"+e}
-                  width={256}
-                  height={256}
-                  alt={e}
-                  unoptimized
-                  priority
-                />
-              </a>
-            ))
-          )
-        }
+        {Children.toArray(
+          certificates.map((e) => (
+            <a
+              className="block h-full w-full max-w-[96px] md:max-w-[156px] object-cover rounded-lg border transition-transform duration-200 hover:-translate-y-1 overflow-hidden"
+              href={"/img/courses/" + e}
+              target="_blank"
+            >
+              <Image
+                className="w-full h-full"
+                src={"/img/courses/" + e}
+                width={256}
+                height={256}
+                alt={e}
+                unoptimized
+                priority
+              />
+            </a>
+          )),
+        )}
       </div>
     </section>
-  )
+  );
 }

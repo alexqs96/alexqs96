@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import DarkMode from "./DarkMode";
@@ -6,34 +6,34 @@ import { GithubLogo, LinkedinLogo, Logo, XLogo } from "./Icons";
 import { usePathname } from "next/navigation";
 
 export function Header() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <header className="flex items-center justify-between py-5 flex-wrap">
-      {
-        pathname === '/'?
+      {pathname === "/" ? (
         <Logo size={32} />
-        :
+      ) : (
         <Link href="/" aria-label="Index Page" scroll={false}>
           <Logo size={32} />
         </Link>
-      }
+      )}
       <div className="flex items-center gap-4 md:gap-5 font-medium flex-wrap">
         <DarkMode />
-        {
-          pathname === '/blog'?
+        {pathname === "/blog" ? (
           <span>Blog</span>
-          :
+        ) : (
           <Link href="/blog" aria-label="Blog" scroll={false}>
             Blog
           </Link>
-        }
-        {
-          pathname === '/contact'?
-          <button className="wave noAa rounded-md py-1.5 px-3 w-fit transition-opacity duration-200 hover:opacity-90" aria-label="Get in Touch">
+        )}
+        {pathname === "/contact" ? (
+          <button
+            className="wave noAa rounded-md py-1.5 px-3 w-fit transition-opacity duration-200 hover:opacity-90"
+            aria-label="Get in Touch"
+          >
             Get in Touch
           </button>
-          :
+        ) : (
           <Link
             href="/contact"
             className="wave noAa rounded-md py-1.5 px-3 w-fit transition-opacity duration-200 hover:opacity-90 pressable"
@@ -42,7 +42,7 @@ export function Header() {
           >
             Get in Touch
           </Link>
-        }
+        )}
       </div>
     </header>
   );

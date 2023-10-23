@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-export default function DarkMode () {
+export default function DarkMode() {
   const changeTheme = () => {
     document.documentElement.classList.remove("light");
     document.documentElement.classList.remove("dark");
@@ -15,7 +15,12 @@ export default function DarkMode () {
   };
 
   return (
-    <button onClick={changeTheme} aria-describedby="Change theme button" className="reveal" aria-label="Change theme button">
+    <button
+      onClick={changeTheme}
+      aria-describedby="Change theme button"
+      className="reveal"
+      aria-label="Change theme button"
+    >
       <svg
         fill="none"
         strokeWidth="0"
@@ -43,4 +48,4 @@ export default function DarkMode () {
       </svg>
     </button>
   );
-};
+}

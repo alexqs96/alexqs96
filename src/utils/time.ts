@@ -1,14 +1,14 @@
 export const FormatDate = (day: string) => {
-  const time = new Date(day).toLocaleDateString('en-us', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  const time = new Date(day).toLocaleDateString("en-us", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 
-  return time
+  return time;
 };
 
 export const CompareDesc = (dateA: Date, dateB: Date) => {
-  if (dateA.getTime() === dateB.getTime()) return 0
-  return dateA > dateB ? -1 : 1
-}
+  if (dateA.getTime() === dateB.getTime()) return 0;
+  return dateA > dateB ? -1 : 1;
+};

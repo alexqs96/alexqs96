@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import { MessageSchema, type TMessageSchema } from "@/types";
 import {
   FILL_EMAIL,
@@ -14,16 +14,16 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ClipBoardIcon } from "./Icons";
-import Image from 'next/image';
+import Image from "next/image";
 
-export default function ContactForm(){
+export default function ContactForm() {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<TMessageSchema>({
-    resolver: zodResolver(MessageSchema)
+    resolver: zodResolver(MessageSchema),
   });
 
   const onSubmit = async (data: TMessageSchema) => {
@@ -34,23 +34,22 @@ export default function ContactForm(){
     sendButton.textContent = MESSAGE_SENDING;
     if (sendButton) {
       try {
-        const formData = new FormData()
-        formData.append("name", data.name)
-        formData.append("email", data.email)
-        formData.append("message", data.message)
+        const formData = new FormData();
+        formData.append("name", data.name);
+        formData.append("email", data.email);
+        formData.append("message", data.message);
 
         const res = await fetch("/api/email", {
           method: "POST",
           body: formData,
-        })
-        
+        });
+
         console.log(res.statusText);
-        
 
         if (res.status === 200) {
           sendButton.textContent = MESSAGE_SEND;
 
-          toast.success(MESSAGE_SENT)
+          toast.success(MESSAGE_SENT);
 
           setTimeout(() => {
             reset({
@@ -63,17 +62,19 @@ export default function ContactForm(){
         }
       } catch (error) {
         sendButton.textContent = MESSAGE_SEND;
-        
-        toast.error(MESSAGE_FAIL)
+
+        toast.error(MESSAGE_FAIL);
       }
     }
   };
 
   const copyToClipboard = () => {
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(process.env.NEXT_PUBLIC_EMAIL_ADDRESS as string);
+      navigator.clipboard.writeText(
+        process.env.NEXT_PUBLIC_EMAIL_ADDRESS as string,
+      );
 
-      toast.success("Email Copied 🥳")
+      toast.success("Email Copied 🥳");
     } else {
       console.log("Clipboard is not available on your device.");
     }
@@ -84,8 +85,17 @@ export default function ContactForm(){
   return (
     <>
       <Toaster />
-      <h1 className="flex items-center gap-2 mb-1 text-xl font-semibold">Get in touch
-        <Image className="wavehand w-[1em]" src="/hand.webp" alt="hand wave" unoptimized priority width={24} height={24} />
+      <h1 className="flex items-center gap-2 mb-1 text-xl font-semibold">
+        Get in touch
+        <Image
+          className="wavehand w-[1em]"
+          src="/hand.webp"
+          alt="hand wave"
+          unoptimized
+          priority
+          width={24}
+          height={24}
+        />
       </h1>
 
       <section className="flex items-center gap-2 mb-1">
@@ -127,7 +137,7 @@ export default function ContactForm(){
             autoComplete="name"
             {...register("name")}
           />
-          {errors.name? (
+          {errors.name ? (
             <span className="bg-red-100/70 dark:bg-red-100 w-fit px-2 py-0.5 rounded-md text-[#ed3f7c] text-sm font-semibold mt-1.5 reveal shake">
               {FILL_NAME}
             </span>
@@ -149,7 +159,7 @@ export default function ContactForm(){
             inputMode="email"
             {...register("email")}
           />
-          {errors.email? (
+          {errors.email ? (
             <span className="bg-red-100/70 dark:bg-red-100 w-fit px-2 py-0.5 rounded-md text-[#ed3f7c] text-sm font-semibold mt-1.5 reveal shake">
               {FILL_EMAIL}
             </span>
@@ -168,7 +178,7 @@ export default function ContactForm(){
             id="message"
             {...register("message")}
           />
-          {errors.message? (
+          {errors.message ? (
             <span className="bg-red-100/70 dark:bg-red-100 w-fit px-2 py-0.5 rounded-md text-[#ed3f7c] text-sm font-semibold mt-1.5 reveal shake">
               {FILL_MESSAGE}
             </span>
@@ -185,5 +195,5 @@ export default function ContactForm(){
         </button>
       </form>
     </>
-  )
+  );
 }
