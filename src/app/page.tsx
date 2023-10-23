@@ -41,7 +41,7 @@ export default function Home() {
       <a
         href="#top"
         aria-label="Go to Top"
-        className="max-xl:hidden absolute -right-[10%] 2xl:-right-[20%] bottom-24 flex items-center p-2.5 bg-[#370cd1] text-white rounded-full hover:opacity-90 pressable"
+        className="max-xl:hidden absolute -right-[10%] 2xl:-right-[20%] bottom-24 flex items-center p-2.5 bg-[#370cd1] text-white rounded-full hover:opacity-90 pressable duration-200 transition-transform hover:-translate-y-1"
       >
         <GoUpLogo size={18} />
       </a>

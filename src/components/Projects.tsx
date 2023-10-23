@@ -114,7 +114,7 @@ const Projects = () => {
               <div className="flex gap-3 items-center">
                 {project.github ? (
                   <a
-                    className="font-medium text-sm noAa bg-black text-white dark:bg-white dark:text-black rounded-md pt-[.4rem] pb-[.3rem] px-3 w-fit transition-opacity duration-200 hover:opacity-90 pressable"
+                    className="font-medium text-sm noAa bg-black text-white dark:bg-white dark:text-black rounded-md py-1.5 px-3 w-fit transition-opacity duration-200 hover:opacity-90 pressable"
                     href={project.github}
                     target="_blank"
                     rel="noreferrer noopener"
@@ -126,7 +126,7 @@ const Projects = () => {
 
                 {project.url ? (
                   <a
-                    className="font-medium text-sm noAa bg-black text-white dark:bg-white dark:text-black rounded-md pt-[.4rem] pb-[.3rem] px-3 w-fit transition-opacity duration-200 hover:opacity-90 pressable"
+                    className="font-medium text-sm noAa bg-black text-white dark:bg-white dark:text-black rounded-md py-1.5 px-3 w-fit transition-opacity duration-200 hover:opacity-90 pressable"
                     href={project.url}
                     target="_blank"
                     rel="noreferrer noopener"
@@ -137,7 +137,7 @@ const Projects = () => {
                 ) : null}
 
                 {project.wip ? (
-                  <span className="font-medium text-sm noAa bg-black text-white dark:bg-white dark:text-black rounded-md pt-[.4rem] pb-[.3rem] px-3 w-fit transition-opacity duration-200 hover:opacity-90">
+                  <span className="font-medium text-sm noAa bg-black text-white dark:bg-white dark:text-black rounded-md py-1.5 px-3 w-fit transition-opacity duration-200 hover:opacity-90">
                     In Progress
                   </span>
                 ) : null}
