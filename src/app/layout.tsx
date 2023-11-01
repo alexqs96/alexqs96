@@ -9,9 +9,6 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Alexander Mamani",
   description: "Mobile and Web Developer",
-  alternates: {
-    canonical: "/",
-  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <section className="flex flex-col gap-28 mb-28">
-        <section className="h-[80vh] md:h-[91vh] text-5xl sm:text-7xl lg:text-9xl xl:text-[8.5em] -tracking-wide font-bold grid grad relative">
-          <div className="pb-10 my-auto balance gradient max-[255px]:text-3xl">
+        <section className="h-[80vh] md:h-[91vh] text-5xl sm:text-7xl lg:text-9xl xl:text-[8.5em] -tracking-wide font-bold grid relative">
+          <h1 className="pb-10 my-auto balance gradient max-[255px]:text-3xl">
             <span className="flex items-center gap-2 md:gap-4 flex-wrap">
               Hi{" "}
               <Image
@@ -29,7 +29,7 @@ export default function Home() {
               </span>
             </span>
             <span>Web Developer</span>
-          </div>
+          </h1>
         </section>
 
         <About />
