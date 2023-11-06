@@ -18,6 +18,10 @@ body{
   animation: reveal .5s cubic-bezier(0.52, 0.01, 0.16, 1);
 }
 
+.hero-msg{
+  font-size: clamp(2.9rem, 10vw, 8.5rem);
+}
+
 @keyframes reveal {
   0% {
     opacity: 0;

@@ -10,14 +10,14 @@ export default function Home() {
   return (
     <>
       <section className="flex flex-col gap-28 mb-28">
-        <section className="h-[80vh] md:h-[91vh] text-5xl sm:text-7xl lg:text-9xl xl:text-[8.5em] -tracking-wide font-bold grid relative">
+        <section className="h-[80vh] md:h-[91vh] hero-msg leading-tight -tracking-wide font-bold grid relative">
           <h1 className="pb-10 my-auto balance gradient max-[255px]:text-3xl">
             <span className="flex items-center gap-2 md:gap-4 flex-wrap">
               Hi{" "}
               <Image
                 width={25}
                 height={25}
-                className="wavehand w-[.9em] h-[.9em]"
+                className="wavehand w-[.9em] h-[.9em] -mr-3"
                 src="/hand.webp"
                 alt="hand wave"
                 unoptimized
