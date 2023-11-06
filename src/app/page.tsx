@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <section className="flex flex-col gap-28 mb-28">
-        <section className="h-[80vh] md:h-[91vh] hero-msg leading-tight -tracking-wide font-bold grid relative">
+        <section className="h-[80vh] md:h-[91vh] hero-msg leading-[1.05] -tracking-wide font-bold grid relative">
           <h1 className="pb-10 my-auto balance gradient max-[255px]:text-3xl">
             <span className="flex items-center gap-2 md:gap-4 flex-wrap">
               Hi{" "}
