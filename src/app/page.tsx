@@ -17,7 +17,7 @@ export default function Home() {
               <Image
                 width={25}
                 height={25}
-                className="wavehand w-[.9em] h-[.9em] -mr-3"
+                className="wavehand w-[.9em] h-[.9em] -mr-3.5"
                 src="/hand.webp"
                 alt="hand wave"
                 unoptimized

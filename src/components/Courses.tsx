@@ -28,7 +28,7 @@ export default function Courses() {
         {Children.toArray(
           certificates.map((e) => (
             <a
-              className="w-[96px] md:w-[156px] rounded-md transition-transform duration-200 hover:-translate-y-1 overflow-hidden"
+              className="w-[96px] md:w-[156px] aspect-[16/12.25] rounded-md transition-transform duration-200 hover:-translate-y-1 overflow-hidden"
               href={"/img/courses/" + e}
               target="_blank"
             >

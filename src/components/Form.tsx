@@ -44,8 +44,6 @@ export default function ContactForm() {
           body: formData,
         });
 
-        console.log(res.statusText);
-
         if (res.status === 200) {
           sendButton.textContent = MESSAGE_SEND;
 

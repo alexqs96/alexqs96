@@ -50,7 +50,7 @@ export async function POST(req: Request) {
         react: EmailTemplate(body),
       });
 
-      if (data.id) {
+      if (data.data?.id) {
         if (nojs) {
           return NextResponse.redirect(
             `${process.env.BASE_URL}/thanks?to=${body.name}`,
