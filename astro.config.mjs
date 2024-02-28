@@ -8,7 +8,7 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   site: "https://alexdev.com.ar",
   integrations: [tailwind(), mdx(), react()],
-  output: "hybrid",
+  output: "server",
   server: {
     host: true,
     port: 3000
