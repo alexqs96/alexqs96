@@ -1,0 +1,46 @@
+---
+import { DateParser } from "@/lib/utils";
+import Layout from "@/layout/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime(),
+);
+---
+
+<Layout>
+  <section>
+    <h1
+      class="text-3xl md:text-4xl font-bold pb-1 border-b-6 border-main w-fit"
+    >
+      {
+        "Blogs".split("").map((e, index) => (
+          <span class="fadeIn" style={`animation-delay: ${index * 0.12 + "s"}`}>{e}</span>
+        ))
+      }
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-5">
+      {
+        posts.map((e, index) => (
+          <a
+            href={"/blog/" + e.slug}
+            class="transition duration-200 rounded-2xl shadow-xl shadow-transparent hover:shadow-black/10 overflow-hidden border border-black/5 fadeDown"
+            style={{ animationDelay: `${index * 0.75}s` }}
+          >
+            <img
+              src={e.data.cover}
+              alt={e.data.title}
+              class="h-40 w-full object-cover"
+            />
+            <div class="p-4 truncate bg-white">
+              <span class="font-semibold text-xl">{e.data.title}</span>
+              <small class="block w-full opacity-80">
+                {DateParser(e.data.createdAt)}
+              </small>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

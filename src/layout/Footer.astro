@@ -1,0 +1,39 @@
+---
+const links = [
+  {
+    url: "/blog",
+    label: "Blog"
+  },
+  {
+    url: "/projects",
+    label: "Projects"
+  },
+  {
+    url: "/about",
+    label: "About"
+  }
+]
+---
+
+<footer
+  class="text-sm fixed z-50 inset-x-0 bottom-10 tracking-wide flex items-center gap-1 bg-white/50 backdrop-blur-md p-2 rounded-xl w-fit mx-auto border border-black/5 shadow-xl shadow-black/5"
+>
+  <a
+    href="/"
+    class={"block relative py-1.5 px-2.5 rounded-lg border border-black/10 bg-white/70 transition duration-150 active:scale-90 hover:opacity-100" +
+      (Astro.url.pathname === "/" ? " font-medium text-black" : " font-thin opacity-80")}
+  >
+    Home
+  </a>
+  {
+    links.map(e => (
+    <a
+      href={e.url}
+      class={"block py-1.5 px-2.5 rounded-lg border border-black/10 bg-white/70 transition duration-150 active:scale-90 hover:opacity-100" +
+        (Astro.url.pathname.includes(e.url) ? " font-medium text-black" : " font-thin opacity-80")}
+    >
+      {e.label}
+    </a>
+    ))
+  }
+</footer>

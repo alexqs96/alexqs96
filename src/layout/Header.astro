@@ -1,0 +1,45 @@
+---
+import { GithubLogo, LinkedinLogo, Logo, XLogo } from "../components/Icons" ;
+
+const iconsSize = "1.7em"
+---
+
+<header
+  class="flex justify-between md:flex-col md:gap-48 items-center h-fit sticky md:w-fit left-0 top-0 p-5 z-50 max-md:bg-gradient-to-b max-md:from-white max-md:to-transparent max-md:backdrop-blur-lg"
+>
+  <a href="/" aria-label="Home">
+    <Logo size={"2em"} />
+  </a>
+  
+  <div class="flex items-center md:flex-col gap-2.5 md:gap-4">
+    <a
+      href="https://www.linkedin.com/in/alexander-mamani"
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label="Linkedin Profile"
+      title="Follow me on Linkedin"
+    >
+      <LinkedinLogo size={iconsSize} />
+    </a>
+
+    <a
+      href="https://github.com/alexqs96"
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label="Github Profile"
+      title="Follow me on Github"
+    >
+      <GithubLogo size={iconsSize} />
+    </a>
+
+    <a
+      href="https://x.com/alexqs96"
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label="X Profile"
+      title="Follow me on X"
+    >
+      <XLogo size={iconsSize} />
+    </a>
+  </div>
+</header>

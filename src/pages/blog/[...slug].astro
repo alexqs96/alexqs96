@@ -1,0 +1,67 @@
+---
+import { DateParser } from "@/lib/utils";
+import Layout from "@/layout/Layout.astro";
+import { getCollection } from "astro:content";
+import { Comments } from "@components/Comments";
+import { CommentLogo } from "@components/Icons";
+
+export async function getStaticPaths() {
+  const allBlogPosts = await getCollection("blog");
+  return allBlogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout>
+  <article class="mb-32 mx-auto max-w-full w-fit relative">
+    <div class="font-medium mb-8 w-fit">
+      /
+      <a
+        href="/blog"
+        class="border-b-2 border-b-transparent hover:border-b-main duration-100 transition opacity-75 hover:opacity-100"
+        >Blog</a
+      >
+      /
+      <a
+        href={"/blog/" + post.slug}
+        class="border-b-2 border-b-transparent hover:border-b-main duration-100 transition opacity-75 hover:opacity-100"
+        >{post.data.title}</a
+      >
+    </div>
+
+    <img
+      class="mb-10 block w-full max-w-prose rounded"
+      src={post.data.cover}
+      alt={post.data.cover + " cover"}
+    />
+
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-2">{post.data.title}</h1>
+
+    <p class="md:text-xl">{post.data.description}</p>
+    <small>Published at {DateParser(post.data.createdAt)}</small>
+
+    <section class="prose mt-8 max-sm:text-sm prose-img:border">
+      <Content />
+    </section>
+    <a
+      href="#top"
+      class="block mt-5 w-fit ml-auto border button button-base button-main no-underline"
+    >
+      Go Up
+    </a>
+    <Comments postId={post.slug} client:visible />
+
+    <a
+      href="#comments"
+      class="block ml-auto sticky bottom-28 -mr-[3.5%] lg:-mr-[15%] md:bottom-12 active:scale-90 transition z-40 w-fit h-fit drop-shadow-md"
+    >
+      <CommentLogo />
+      <span class="block size-6 bg-main absolute inset-0 m-auto -z-10"></span>
+    </a>
+  </article>
+</Layout>

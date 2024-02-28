@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Throw A Note",
+    "desktop": "throwanote_notebook.webp",
+    "mobile": "throwanote_mobile.webp",
+    "about": "Want to share your note anonimously? Throw a Note is your site of random notes.",
+    "github": "https://github.com/alexqs96/throwanote",
+    "url": "https://throwanote.vercel.app",
+    "tech": [
+      "Typescript",
+      "Next.js",
+      "Express.js",
+      "Tailwind",
+      "MongoDB"
+    ],
+    "wip": false
+  },
+  {
+    "name": "X Clone",
+    "desktop": "twitter_notebook.webp",
+    "mobile": "twitter_mobile.webp",
+    "about": "X Clone, No Country Project.",
+    "github": "https://github.com/No-Country/s8-07-t-node-react-twitter",
+    "url": "https://twitter-nc.vercel.app",
+    "tech": [
+      "Next.js",
+      "Express.js",
+      "Socket.io",
+      "Node.js",
+      "Tailwind",
+      "MongoDB"
+    ],
+    "wip": false
+  },
+  {
+    "name": "Anonytalk",
+    "desktop": "anonytalk_notebook.webp",
+    "mobile": "anonytalk_mobile.webp",
+    "about": "Chat anonimously in groups at Anonytalk, create your chat and share it with friends.",
+    "github": "https://github.com/alexqs96/anonytalk_client",
+    "url": "https://anonytalk.vercel.app",
+    "tech": [
+      "Typescript",
+      "Next.js",
+      "Express.js",
+      "Node.js",
+      "Socket.io",
+      "Tailwind"
+    ],
+    "wip": false
+  },
+  {
+    "name": "La Carte Maker",
+    "desktop": "wip_notebook.webp",
+    "mobile": "wip_mobile.webp",
+    "about": "Create menus for food services, manage prices, photos and details of each plate, generate your own QR Link.",
+    "github": "",
+    "url": "",
+    "tech": [
+      "Typescript",
+      "Next.js",
+      "Express.js",
+      "Tailwind",
+      "MongoDB"
+    ],
+    "wip": true
+  }
+]

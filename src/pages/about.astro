@@ -1,0 +1,18 @@
+---
+import Layout from "../layout/Layout.astro";
+import { AboutMe, Certificates, Contact, CopyButton, Skills } from "@components/About";
+---
+
+<Layout>
+  <section class="flex flex-col gap-10 mb-44 max-w-prose mx-auto">
+    <AboutMe />
+
+    <Contact>
+      <CopyButton client:only="react" />
+    </Contact>
+
+    <Certificates client:load />
+
+    <Skills />
+  </section>
+</Layout>
