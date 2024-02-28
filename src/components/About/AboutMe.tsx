@@ -5,7 +5,7 @@ export function AboutMe(props: React.ComponentProps<'section'>) {
 
   return (
     <section className={"flex gap-10 max-sm:flex-col "+(className || "")} {...restProps}>
-      <img src="/img/profile.webp" className="rounded-3xl bg-gradient-to-b from-slate-200/70 to-body shadow-2xl shadow-main/10 my-auto sm:max-w-[30%]" />
+      <img src="/img/profile.webp" className="rounded-3xl bg-gradient-to-b from-slate-200/70 to-body shadow-2xl shadow-main/10 my-auto sm:max-w-[30%]" alt="My Picture" />
 
       <div className="flex flex-col gap-3 sm:max-w-[60%]">
         <h1 className="text-3xl font-bold pb-1 border-b-6 border-main w-fit">
