@@ -5,6 +5,8 @@ import { getCollection } from "astro:content";
 import { Comments } from "@components/Comments";
 import { CommentLogo } from "@components/Icons";
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const allBlogPosts = await getCollection("blog");
   return allBlogPosts.map((post) => ({
