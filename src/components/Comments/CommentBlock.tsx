@@ -42,16 +42,16 @@ export function CommentSkeleton() {
     <div
       className="p-4 rounded-lg border relative bg-white w-full overflow-hidden animate-pulse"
     >
-      <span title="Loading" className="block font-medium truncate max-w-[50%] bg-slate-200/70 w-[12ch] py-2 rounded-md"></span>
+      <span title="Loading" className="block font-medium truncate max-w-[50%] bg-slate-200/80 w-[12ch] py-2 rounded-md"></span>
       
       <div className="flex items-center gap-1.5 mt-1.5">
-        <small className="block bg-slate-200/70 w-[6ch] py-1.5 rounded-md"></small>
+        <small className="block bg-slate-200/80 w-[6ch] py-1.5 rounded-md"></small>
         <small className="text-sm text-slate-200">/</small>
-        <small className="block bg-slate-200/70 w-[6ch] py-1.5 rounded-md"></small>
+        <small className="block bg-slate-200/80 w-[6ch] py-1.5 rounded-md"></small>
       </div>
 
-      <p className="break-words mt-1.5 py-2 w-full max-w-[56ch] bg-slate-200/70 rounded-md"></p>
-      <p className="break-words mt-1.5 py-2 w-full max-w-[32ch] bg-slate-200/70 rounded-md"></p>
+      <p className="break-words mt-1.5 py-2 w-full max-w-[56ch] bg-slate-200/80 rounded-md"></p>
+      <p className="break-words mt-1.5 py-2 w-full max-w-[32ch] bg-slate-200/80 rounded-md"></p>
     </div>
   );
 }
