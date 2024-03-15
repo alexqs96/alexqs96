@@ -2,6 +2,8 @@ import { COMMENT_ADDED, MISSING_FIELDS, SERVER_ERROR } from "@/consts";
 import { AddComment, GetComments } from "@/lib/models/Comment";
 import type { APIRoute } from "astro";
 
+// in case you use pnpm and get some trouble with the APIRoute use this command to fix it and reload your window: pnpm astro sync
+
 export const GET: APIRoute = async ({ params, request }) => {
   try {
     const url = new URL(request.url);
