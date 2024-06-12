@@ -24,8 +24,8 @@ export function CopyButton() {
       <button
         onClick={handleCopy}
         className={
-          "bg-gradient-to-b from-slate-100 to-slate-50 button-base sm:border-l font-medium text-sm group transition-[width] duration-200" +
-          (copied ? " w-[10.5ch]" : " w-[6.7ch]")
+          "bg-gradient-to-b from-slate-100 to-slate-50 h-9 hover:from-slate-200 hover:to-slate-100 button-base sm:border-l font-medium text-sm group transition-[width] duration-200" +
+          (copied ? " w-[10ch]" : " w-[6.7ch]")
         }>
         <span
           className={

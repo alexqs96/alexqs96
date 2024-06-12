@@ -51,7 +51,7 @@ export function Certificates(props: React.ComponentProps<"section">) {
               onClick={() => {
                 setCurrent(i), setOpen(true);
               }}
-              className="cursor-pointer aspect-[16/12.25] rounded border transition-transform duration-200 hover:-translate-y-1 overflow-hidden"
+              className="cursor-pointer aspect-video object-center rounded border transition-transform duration-200 hover:-translate-y-1 overflow-hidden"
               src={e.src}
               width={256}
               height={256}

@@ -8,12 +8,14 @@ export function AboutMe(props: React.ComponentProps<"section">) {
       className={"flex gap-10 max-sm:flex-col " + (className || "")}
       {...restProps}>
       <img
+        width={512}
+        height={512}
         src="/img/profile.webp"
-        className="rounded-3xl bg-gradient-to-b from-slate-200/70 to-body shadow-2xl shadow-main/10 my-auto sm:max-w-[30%]"
+        className="rounded-3xl bg-gradient-to-b from-slate-200/70 to-body shadow-2xl shadow-main/10 my-auto sm:max-w-[236px]"
         alt="My Picture"
       />
 
-      <div className="flex flex-col gap-3 sm:max-w-[60%]">
+      <div className="flex flex-col gap-3 w-full">
         <h1 className="text-2xl font-bold pb-1 border-b-6 border-main w-fit">
           {Children.toArray(
             "About Me".split("").map((e, index) => (
@@ -26,7 +28,7 @@ export function AboutMe(props: React.ComponentProps<"section">) {
           )}
         </h1>
 
-        <div className="md:text-balance opacity-90 text-base leading-6 text-gray-900 max-sm:text-sm">
+        <div className="md:text-balance opacity-90 text-base leading-6 text-gray-900">
           <p>Hey! im Alex. Web, Mobile developer and UI designer.</p>
           <p>Based in Buenos Aires, Argentina 🇦🇷.</p>
           <p>

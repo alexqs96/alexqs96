@@ -17,7 +17,7 @@ export function Contact({
         Contact
       </h2>
       <div className="flex items-center border w-fit rounded-lg bg-slate-50 overflow-hidden">
-        <span className="truncate text-gray-900 mx-2 block py-1.7 max-sm:text-xs">
+        <span className="truncate text-gray-900 mx-2 block py-1.7 max-[365px]:text-xs">
           {email}
         </span>
         {children}
