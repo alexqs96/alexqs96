@@ -1,24 +1,24 @@
 ---
-import { GithubLogo, LinkedinLogo, Logo, XLogo } from "../components/Icons" ;
+import { GithubLogo, LinkedinLogo, Logo, XLogo } from "../components/Icons";
 
-const iconsSize = "1.7em"
+const iconsSize = "1.7em";
 ---
 
 <header
-  class="flex justify-between md:flex-col md:gap-y-40 items-center h-fit sticky md:w-fit left-0 top-0 p-4 sm:p-5 z-50 max-md:bg-gradient-to-b max-md:from-white max-md:to-transparent max-md:backdrop-blur-lg"
->
-  <a href="/" aria-label="Home">
+  class="flex justify-between md:flex-col md:gap-y-40 items-center h-fit sticky md:w-fit left-0 top-0 p-4 max-sm:px-[5%] sm:p-5 z-50 max-md:bg-gradient-to-b max-md:from-white/80 max-md:to-white/80 max-md:backdrop-blur-lg max-md:shadow-sm">
+  <a
+    href="/"
+    aria-label="Home">
     <Logo size={"2em"} />
   </a>
-  
-  <div class="flex items-center md:flex-col gap-2.5 md:gap-4">
+
+  <div class="flex items-center md:flex-col gap-2.5 md:gap-4 max-sm:text-xs">
     <a
       href="https://www.linkedin.com/in/alexander-mamani"
       target="_blank"
       rel="noreferrer noopener"
       aria-label="Linkedin Profile"
-      title="Follow me on Linkedin"
-    >
+      title="Follow me on Linkedin">
       <LinkedinLogo size={iconsSize} />
     </a>
 
@@ -27,8 +27,7 @@ const iconsSize = "1.7em"
       target="_blank"
       rel="noreferrer noopener"
       aria-label="Github Profile"
-      title="Follow me on Github"
-    >
+      title="Follow me on Github">
       <GithubLogo size={iconsSize} />
     </a>
 
@@ -37,8 +36,7 @@ const iconsSize = "1.7em"
       target="_blank"
       rel="noreferrer noopener"
       aria-label="X Profile"
-      title="Follow me on X"
-    >
+      title="Follow me on X">
       <XLogo size={iconsSize} />
     </a>
   </div>

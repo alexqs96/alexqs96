@@ -1,26 +1,31 @@
 ---
-import Head from './Head.astro';
-import Header from './Header.astro';
-import Footer from './Footer.astro';
+import Head from "./Head.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
 
 interface Props {
-	title?: string;
-	description?: string;
+  title?: string;
+  description?: string;
 }
 
 const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-body bg-fixed">
-	<head>
-		<Head title={title || "Alexander Mamani"} description={description || "Welcome to my portfolio"} />
-	</head>
-	<body class="max-w-screen-2xl mx-auto w-full flex max-md:flex-col h-full">
-		<Header />
-		<main class="max-w-screen-lg w-[90%] md:w-[80%] mx-auto mt-5">
-			<slot />
-		</main>
-		<Footer />
-	</body>
+<html
+  lang="en"
+  class="bg-body bg-fixed antialiased">
+  <head>
+    <Head
+      title={title || "Alexander Mamani"}
+      description={description || "Welcome to my portfolio"}
+    />
+  </head>
+  <body class="max-w-screen-2xl mx-auto w-full flex max-md:flex-col h-full">
+    <Header />
+    <main class="max-w-screen-lg w-[90%] md:w-[80%] mx-auto mt-5">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>

@@ -13,22 +13,22 @@ const TechBox = ({
     <section className="w-full mb-10">
       <span className="text-xl font-semibold font-mono">{data.title}</span>
 
-      <p className="text-gray-900">{data.info}</p>
+      <p className="text-gray-900 max-sm:text-sm">{data.info}</p>
 
-      <div className="mt-5 flex flex-wrap w-full gap-1">
+      <div className="mt-2.5 flex flex-wrap w-full gap-1 max-sm:text-xs">
         <Badges data={data.icons} />
       </div>
     </section>
   );
 };
 
-export const Skills = (props: React.ComponentProps<'section'>) => {
-  const { className, ...restProps} = props
+export const Skills = (props: React.ComponentProps<"section">) => {
+  const { className, ...restProps } = props;
 
   const frontend = {
     title: "Frontend",
     info: "I've been working on Web Apps with Next.js/React. I use CSS for styling and also Tailwind/Bootstrap. TypeScript has been beneficial for managing larger projects, aiding in debugging, and ensuring a clear codebase for collaboration.",
-    icons: ["Next.js", "Astro" ,"React Native", "Tailwind", "Typescript"],
+    icons: ["Next.js", "Astro", "React Native", "Tailwind", "Typescript"],
   };
 
   const backend = {
@@ -44,8 +44,12 @@ export const Skills = (props: React.ComponentProps<'section'>) => {
   };
 
   return (
-    <section className={className} {...restProps}>
-      <h2 className="text-2xl font-bold pb-1 border-b-6 border-main w-fit mb-5">Skills</h2>
+    <section
+      className={className}
+      {...restProps}>
+      <h2 className="text-2xl font-bold pb-1 border-b-6 border-main w-fit mb-5">
+        Skills
+      </h2>
 
       <TechBox data={frontend} />
 

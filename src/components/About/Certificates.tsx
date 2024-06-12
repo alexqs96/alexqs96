@@ -30,10 +30,10 @@ export function Certificates(props: React.ComponentProps<"section">) {
   ];
 
   return (
-    <section className={className} {...restProps}>
-      <h1
-        className="text-2xl font-bold pb-1 border-b-6 border-main w-fit mb-2"
-      >
+    <section
+      className={className}
+      {...restProps}>
+      <h1 className="text-2xl font-bold pb-1 border-b-6 border-main w-fit mb-2">
         Certificates
       </h1>
 
@@ -45,18 +45,20 @@ export function Certificates(props: React.ComponentProps<"section">) {
       />
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mt-5">
-      {Children.toArray(
-        certificates.map((e, i) => (
-          <img
-            onClick={() => {setCurrent(i), setOpen(true)}}
-            className="cursor-pointer aspect-[16/12.25] rounded border transition-transform duration-200 hover:-translate-y-1 overflow-hidden"
-            src={e.src}
-            width={256}
-            height={256}
-            alt={e.src}
-          />
-        )),
-      )}
+        {Children.toArray(
+          certificates.map((e, i) => (
+            <img
+              onClick={() => {
+                setCurrent(i), setOpen(true);
+              }}
+              className="cursor-pointer aspect-[16/12.25] rounded border transition-transform duration-200 hover:-translate-y-1 overflow-hidden"
+              src={e.src}
+              width={256}
+              height={256}
+              alt={e.src}
+            />
+          )),
+        )}
       </div>
     </section>
   );
