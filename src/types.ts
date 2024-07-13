@@ -6,13 +6,21 @@ export interface iconType {
 
 export type ReactSetState<T> = React.Dispatch<React.SetStateAction<T>>;
 
-export type CommentBase = {
+export type CommentType = {
+  id?: string;
   name: string;
-  website?: string | null;
+  website?: string;
   comment: string;
 };
 
-export interface Comment extends CommentBase {
+export type CommentFormType = {
+  id?: string | null;
+  name: FormDataEntryValue | null;
+  website?: FormDataEntryValue | null;
+  comment: FormDataEntryValue | null;
+}
+
+export interface Comment extends CommentType {
   _id: string;
   createdAt?: Date;
 }

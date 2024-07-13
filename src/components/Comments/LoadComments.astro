@@ -1,0 +1,10 @@
+---
+import { GetComments } from "@/lib/models/Comment";
+import { CommentBlock } from "./CommentBlock";
+
+const { post } = Astro.props;
+
+const data = await GetComments(post)
+---
+
+{data?.map((e) => <CommentBlock data={e} />)}

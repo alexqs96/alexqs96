@@ -13,6 +13,9 @@ const links = [
     label: "About",
   },
 ];
+
+const path = Astro.url.pathname
+
 ---
 
 <footer
@@ -20,7 +23,7 @@ const links = [
   <a
     href="/"
     class={"block relative py-1.5 px-2.5 rounded-lg border hover:border-black/15 bg-white/70 transition duration-150 active:scale-95 hover:opacity-100" +
-      (Astro.url.pathname === "/"
+      (path === "/"
         ? " font-medium text-black border-black/15"
         : " font-thin opacity-80 border-black/10")}>
     Home
@@ -31,7 +34,7 @@ const links = [
         href={e.url}
         class={
           "block py-1.5 px-2.5 rounded-lg border hover:border-black/15 bg-white/70 transition duration-150 active:scale-95 hover:opacity-100" +
-          (Astro.url.pathname.includes(e.url)
+          (path.includes(e.url)
             ? " font-medium text-black border-black/15"
             : " font-thin opacity-80 border-black/10")
         }>

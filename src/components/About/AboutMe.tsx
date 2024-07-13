@@ -11,8 +11,9 @@ export function AboutMe(props: React.ComponentProps<"section">) {
         width={512}
         height={512}
         src="/img/profile.webp"
-        className="rounded-3xl bg-gradient-to-b from-slate-200/70 to-body shadow-2xl shadow-main/10 my-auto sm:max-w-[236px]"
+        className="rounded-3xl bg-gradient-to-b from-slate-200/70 to-body shadow-2xl shadow-main/10 my-auto w-full sm:max-w-[236px]"
         alt="My Picture"
+        loading="lazy"
       />
 
       <div className="flex flex-col gap-3 w-full">
@@ -32,8 +33,8 @@ export function AboutMe(props: React.ComponentProps<"section">) {
           <p>Hey! im Alex. Web, Mobile developer and UI designer.</p>
           <p>Based in Buenos Aires, Argentina 🇦🇷.</p>
           <p>
-            I invite you to get to know me better through my blog, where i write
-            about code and personal experiences.
+            I invite you to get to know me better through my blog, where i write about code and
+            personal experiences.
           </p>
         </div>
 

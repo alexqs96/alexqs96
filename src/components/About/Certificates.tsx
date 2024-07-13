@@ -8,8 +8,12 @@ export function Certificates(props: React.ComponentProps<"section">) {
   const [current, setCurrent] = useState(-1);
 
   const certificates = [
-    { src: "/img/courses/google_it_support.webp" },
-    { src: "/img/courses/digital_house_fullstack.webp" },
+    {
+      src: "/img/courses/google_it_support.webp",
+    },
+    {
+      src: "/img/courses/digital_house_fullstack.webp",
+    },
     {
       src: "/img/courses/Certificado-Desarrollo-Web-con-HTML-EducacionIT.webp",
     },
@@ -22,20 +26,22 @@ export function Certificates(props: React.ComponentProps<"section">) {
     {
       src: "/img/courses/Certificado-Javascript-Desarrollador-Avanzado-EducacionIT.webp",
     },
-    { src: "/img/courses/Certificado-Javascript-desde-cero-EducacionIT.webp" },
+    {
+      src: "/img/courses/Certificado-Javascript-desde-cero-EducacionIT.webp",
+    },
     {
       src: "/img/courses/Certificado-Maquetador-Web-Avanzado-EducacionIT.webp",
     },
-    { src: "/img/courses/Certificado-MongoDB-Fundamentos-EducacionIT.webp" },
+    {
+      src: "/img/courses/Certificado-MongoDB-Fundamentos-EducacionIT.webp",
+    },
   ];
 
   return (
     <section
       className={className}
       {...restProps}>
-      <h1 className="text-2xl font-bold pb-1 border-b-6 border-main w-fit mb-2">
-        Certificates
-      </h1>
+      <h1 className="text-2xl font-bold pb-1 border-b-6 border-main w-fit mb-2">Certificates</h1>
 
       <Lightbox
         open={open}
@@ -44,18 +50,19 @@ export function Certificates(props: React.ComponentProps<"section">) {
         slides={[...certificates]}
       />
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mt-5">
+      <div className="grid grid-cols-3 md:grid-cols-4 gap-2 mt-5">
         {Children.toArray(
           certificates.map((e, i) => (
             <img
               onClick={() => {
                 setCurrent(i), setOpen(true);
               }}
-              className="cursor-pointer aspect-video object-center rounded border transition-transform duration-200 hover:-translate-y-1 overflow-hidden"
+              className="cursor-pointer object-cover size-full rounded border transition-transform duration-200 hover:-translate-y-1 overflow-hidden"
               src={e.src}
               width={256}
               height={256}
               alt={e.src}
+              loading="lazy"
             />
           )),
         )}

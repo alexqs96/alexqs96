@@ -15,7 +15,7 @@ const TechBox = ({
 
       <p className="text-gray-900 max-sm:text-sm">{data.info}</p>
 
-      <div className="mt-2.5 flex flex-wrap w-full gap-1 max-sm:text-xs">
+      <div className="mt-2.5 flex flex-wrap w-full gap-1 max-sm:text-xs text-sm">
         <Badges data={data.icons} />
       </div>
     </section>
@@ -47,9 +47,7 @@ export const Skills = (props: React.ComponentProps<"section">) => {
     <section
       className={className}
       {...restProps}>
-      <h2 className="text-2xl font-bold pb-1 border-b-6 border-main w-fit mb-5">
-        Skills
-      </h2>
+      <h2 className="text-2xl font-bold pb-1 border-b-6 border-main w-fit mb-5">Skills</h2>
 
       <TechBox data={frontend} />
 

@@ -1,6 +1,7 @@
-import type { CommentBase } from "@/types";
+import type { CommentType } from "@/types";
 import mongoose from "mongoose";
 import ConnectDB from "../database";
+import { getCollection } from "astro:content";
 
 const commentSchema = new mongoose.Schema(
   {
@@ -25,8 +26,7 @@ const commentSchema = new mongoose.Schema(
   },
 );
 
-const Comment =
-  mongoose.models.Comments || mongoose.model("Comments", commentSchema);
+const Comment = mongoose.models.Comments || mongoose.model("Comments", commentSchema);
 
 export async function GetComments(id: string | undefined) {
   try {
@@ -49,18 +49,17 @@ export async function GetComments(id: string | undefined) {
   }
 }
 
-export async function AddComment(data: CommentBase & { id: string }) {
+export async function AddComment(data: CommentType) {
   try {
-    const { id, name, comment, website } = data;
-
     await ConnectDB();
 
-    const newPost = new Comment({
-      id,
-      name,
-      comment,
-      website,
-    });
+    const postFound = await findPost(data?.id || "")
+
+    if (!postFound) {
+      return false;
+    }
+
+    const newPost = new Comment(data);
 
     await newPost.save();
 
@@ -70,4 +69,13 @@ export async function AddComment(data: CommentBase & { id: string }) {
 
     return false;
   }
+}
+
+async function findPost(slug: string) {
+  const data = await getCollection("blog");
+  const found = data.map((post) => ({
+    slug: post.slug,
+  }));
+
+  return found.some((post) => post.slug === slug);
 }

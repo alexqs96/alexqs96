@@ -7,8 +7,7 @@ export function CopyButton() {
   const email = "alexander.mamani.dev@gmail.com";
 
   const handleCopy = () => {
-    if (!navigator.clipboard)
-      return console.log("Sorry clipboard isn't available in your device.");
+    if (!navigator.clipboard) return console.log("Sorry clipboard isn't available in your device.");
 
     if (navigator.clipboard && !copied) {
       setCopied(true);
@@ -27,10 +26,7 @@ export function CopyButton() {
           "bg-gradient-to-b from-slate-100 to-slate-50 h-9 hover:from-slate-200 hover:to-slate-100 button-base sm:border-l font-medium text-sm group transition-[width] duration-200" +
           (copied ? " w-[10ch]" : " w-[6.7ch]")
         }>
-        <span
-          className={
-            "flex items-center gap-1 group-active:scale-95 transition"
-          }>
+        <span className={"flex items-center gap-1 group-active:scale-95 transition"}>
           {copied ? (
             <>
               Copied <OkLogo />

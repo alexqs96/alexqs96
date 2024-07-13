@@ -7,7 +7,7 @@ export function CommentBlock({ data }: { data: Comment }) {
   }
 
   return (
-    <div className="p-4 rounded-lg border relative bg-white w-full overflow-hidden">
+    <div className="p-4 rounded-lg border relative bg-white w-full overflow-hidden mb-2">
       <span
         title={data.name}
         className="block font-medium truncate max-w-[50%]">

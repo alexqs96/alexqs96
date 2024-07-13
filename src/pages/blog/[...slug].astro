@@ -4,6 +4,7 @@ import Layout from "@/layout/Layout.astro";
 import { getCollection } from "astro:content";
 import { Comments } from "@components/Comments";
 import { CommentLogo } from "@components/Icons";
+import LoadComments from "@components/Comments/LoadComments.astro";
 
 export const prerender = true;
 
@@ -56,10 +57,14 @@ const { Content } = await post.render();
       title="Go up">
       Go Up
     </a>
+
     <Comments
       postId={post.slug}
-      client:visible
-    />
+      client:visible>
+      <noscript>
+        <LoadComments post={post.slug} />
+      </noscript>
+    </Comments>
 
     <a
       href="#comments"

@@ -1,10 +1,9 @@
 import { COMMENT_ADDED, MISSING_FIELDS, SERVER_ERROR } from "@/consts";
 import { AddComment, GetComments } from "@/lib/models/Comment";
+import { CommentSchema, type CommentFormType, type CommentType } from "@/types";
 import type { APIRoute } from "astro";
 
-// in case you use pnpm and get some trouble with the APIRoute use this command to fix it and reload your window: pnpm astro sync
-
-export const GET: APIRoute = async ({ params, request }) => {
+export const GET: APIRoute = async ({ request }) => {
   try {
     const url = new URL(request.url);
     const query = Object.fromEntries(url.searchParams);
@@ -29,17 +28,25 @@ export const GET: APIRoute = async ({ params, request }) => {
   }
 };
 
-export const POST: APIRoute = async ({ params, request }) => {
+export const POST: APIRoute = async ({ request }) => {
+  const formQueries = new URL(request?.url).searchParams;
+  const baseUrl = new URL(request.url).origin + "/blog/" + formQueries.get("id") + "#comments";
+
   try {
-    const data = await request.formData();
-    const body = {
-      id: data.get("id") as string,
-      name: data.get("name") as string,
-      website: data.get("website") as string,
-      comment: data.get("comment") as string,
+    const data = await request?.formData();
+
+    const body: CommentFormType = {
+      id: formQueries.get("id"),
+      name: data.get("name"),
+      website: data.get("website"),
+      comment: data.get("comment"),
     };
 
-    if (!body.name || !body.comment) {
+    if (!CommentSchema.safeParse(body).success) {
+      if (formQueries.get("nojs")) {
+        return Response.redirect(baseUrl);
+      }
+
       return new Response(
         JSON.stringify({
           message: MISSING_FIELDS,
@@ -51,7 +58,11 @@ export const POST: APIRoute = async ({ params, request }) => {
       );
     }
 
-    await AddComment(body);
+    await AddComment(body as CommentType);
+
+    if (formQueries.get("nojs")) {
+      return Response.redirect(baseUrl);
+    }
 
     return new Response(
       JSON.stringify({
@@ -64,6 +75,10 @@ export const POST: APIRoute = async ({ params, request }) => {
     );
   } catch (error) {
     console.error(error);
+
+    if (formQueries.get("nojs")) {
+      return Response.redirect(baseUrl);
+    }
 
     return new Response(
       JSON.stringify({

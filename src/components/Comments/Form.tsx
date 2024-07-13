@@ -15,7 +15,7 @@ function Form({
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isDirty },
+    formState: { errors, isSubmitting },
   } = useForm<TCommentSchema>({
     resolver: zodResolver(CommentSchema),
   });
@@ -23,12 +23,11 @@ function Form({
   const onSubmit = async (values: TCommentSchema) => {
     try {
       const formData = new FormData();
-      formData.append("id", data.id);
       formData.append("name", values.name);
       formData.append("website", values.website);
       formData.append("comment", values.comment);
 
-      const res = await fetch("/api/comment.json", {
+      const res = await fetch(`/api/comment.json?id=${data.id}`, {
         method: "POST",
         body: formData,
       });
@@ -55,6 +54,8 @@ function Form({
 
   return (
     <form
+      method="POST"
+      action={`/api/comment.json?nojs=true&id=${data.id}`}
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-2">
       <span className="text-lg font-medium block">
@@ -117,7 +118,7 @@ function Form({
       </div>
 
       <button
-        disabled={isDirty || isSubmitting}
+        disabled={isSubmitting}
         className={
           "button button-base button-main" +
           (isSubmitting ? " animate-pulse" : "")

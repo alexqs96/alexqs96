@@ -44,11 +44,8 @@ export default function Projects() {
             <div className="flex flex-col gap-2.5">
               <span className="text-3xl sm:text-5xl font-bold">{e.name}</span>
 
-              <div className="relative">
-                <div className="flex gap-1 snap-x overflow-x-auto text-xs pb-4 -mb-4 pr-2">
-                  <Badges data={e.tech} />
-                </div>
-                <span className="bg-gradient-to-r from-transparent to-body w-8 min-h-full absolute right-0 left-auto inset-y-0 block"></span>
+              <div className="flex gap-1 flex-wrap text-xs pb-4 -mb-4 pr-2">
+                <Badges data={e.tech} />
               </div>
 
               <p className="text-lg max-w-prose">{e.about}</p>

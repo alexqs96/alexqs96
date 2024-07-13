@@ -10,8 +10,7 @@ const posts = (await getCollection("blog")).sort(
 
 <Layout>
   <section>
-    <h1
-      class="text-3xl md:text-4xl font-bold pb-1 border-b-6 border-main w-fit">
+    <h1 class="text-3xl md:text-4xl font-bold pb-1 border-b-6 border-main w-fit">
       {
         "Blogs".split("").map((e, index) => (
           <span
@@ -36,9 +35,7 @@ const posts = (await getCollection("blog")).sort(
             />
             <div class="p-4 truncate bg-white">
               <span class="font-semibold text-xl">{e.data.title}</span>
-              <small class="block w-full opacity-80">
-                {DateParser(e.data.createdAt)}
-              </small>
+              <small class="block w-full opacity-80">{DateParser(e.data.createdAt)}</small>
             </div>
           </a>
         ))

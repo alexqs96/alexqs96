@@ -6,7 +6,7 @@ const Badges = ({ data }: { data: string[] }) => {
     <>
       {Children.toArray(
         data.map((icon) => (
-          <span className="group max-sm:text-sm inline-flex items-center gap-1 bg-gradient-to-b from-slate-100/70 to-body shadow-2xl shadow-main/10 border rounded-lg py-1.5 px-2.5">
+          <span className="group inline-flex items-center gap-1 bg-gradient-to-b from-slate-100/70 to-body shadow-2xl shadow-main/10 border rounded-lg py-1.5 px-2.5">
             {icon} {Icons[icon]}
           </span>
         )),
@@ -15,4 +15,4 @@ const Badges = ({ data }: { data: string[] }) => {
   );
 };
 
-export default Badges
+export default Badges;
